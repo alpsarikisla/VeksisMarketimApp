@@ -1,2 +1,2 @@
 # VeksisMarketimApp
-Sınıf İçerisinde GErçekleştirilen Market Sıcak Satış Ve Stok Yazılımı
+Sınıf İçerisinde Gerçekleştirilen Market Sıcak Satış Ve Stok Yazılımı
