@@ -21,6 +21,28 @@ namespace VeksisMarketimApp
             frm.ShowDialog();
             InitializeComponent();
             TSSL_Kullanici.Text = "Aktif Kullanıcı = " + LoginUser.KullaniciAdi;
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void TSMI_TedarikciIslemleri_Click(object sender, EventArgs e)
+        {
+            Form[] acikformlar = this.MdiChildren;
+            bool acikmi = false;
+
+            foreach (Form item in acikformlar)
+            {
+                if (item.GetType() == typeof(TedarikciIslemleri))
+                {
+                    acikmi = true;
+                    item.Activate();
+                }
+            }
+            if (acikmi == false)
+            {
+                TedarikciIslemleri frm = new TedarikciIslemleri();
+                frm.MdiParent = this;
+                frm.Show();
+            }
         }
     }
 }

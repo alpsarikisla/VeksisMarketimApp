@@ -32,6 +32,9 @@
             this.dosyaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.TSSL_Kullanici = new System.Windows.Forms.ToolStripStatusLabel();
+            this.işlemlerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMI_TedarikciIslemleri = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -39,7 +42,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dosyaToolStripMenuItem});
+            this.dosyaToolStripMenuItem,
+            this.işlemlerToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -68,6 +72,27 @@
             this.TSSL_Kullanici.Size = new System.Drawing.Size(118, 17);
             this.TSSL_Kullanici.Text = "toolStripStatusLabel1";
             // 
+            // işlemlerToolStripMenuItem
+            // 
+            this.işlemlerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSMI_TedarikciIslemleri,
+            this.toolStripSeparator1});
+            this.işlemlerToolStripMenuItem.Name = "işlemlerToolStripMenuItem";
+            this.işlemlerToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.işlemlerToolStripMenuItem.Text = "İşlemler";
+            // 
+            // TSMI_TedarikciIslemleri
+            // 
+            this.TSMI_TedarikciIslemleri.Name = "TSMI_TedarikciIslemleri";
+            this.TSMI_TedarikciIslemleri.Size = new System.Drawing.Size(180, 22);
+            this.TSMI_TedarikciIslemleri.Text = "Tedarikçi İşlemleri";
+            this.TSMI_TedarikciIslemleri.Click += new System.EventHandler(this.TSMI_TedarikciIslemleri_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
             // AnaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -94,5 +119,8 @@
         private System.Windows.Forms.ToolStripMenuItem dosyaToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel TSSL_Kullanici;
+        private System.Windows.Forms.ToolStripMenuItem işlemlerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_TedarikciIslemleri;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
