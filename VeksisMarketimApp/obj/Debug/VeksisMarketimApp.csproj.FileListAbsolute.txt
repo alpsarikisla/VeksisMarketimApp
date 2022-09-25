@@ -1,0 +1,15 @@
+C:\Users\303\Documents\GitHub\VeksisMarketimApp\VeksisMarketimApp\bin\Debug\VeksisMarketimApp.exe.config
+C:\Users\303\Documents\GitHub\VeksisMarketimApp\VeksisMarketimApp\bin\Debug\VeksisMarketimApp.exe
+C:\Users\303\Documents\GitHub\VeksisMarketimApp\VeksisMarketimApp\bin\Debug\VeksisMarketimApp.pdb
+C:\Users\303\Documents\GitHub\VeksisMarketimApp\VeksisMarketimApp\bin\Debug\DataAccessLayer.dll
+C:\Users\303\Documents\GitHub\VeksisMarketimApp\VeksisMarketimApp\bin\Debug\DataAccessLayer.pdb
+C:\Users\303\Documents\GitHub\VeksisMarketimApp\VeksisMarketimApp\obj\Debug\VeksisMarketimApp.csproj.AssemblyReference.cache
+C:\Users\303\Documents\GitHub\VeksisMarketimApp\VeksisMarketimApp\obj\Debug\VeksisMarketimApp.csproj.SuggestedBindingRedirects.cache
+C:\Users\303\Documents\GitHub\VeksisMarketimApp\VeksisMarketimApp\obj\Debug\VeksisMarketimApp.AnaForm.resources
+C:\Users\303\Documents\GitHub\VeksisMarketimApp\VeksisMarketimApp\obj\Debug\VeksisMarketimApp.KullaniciGiris.resources
+C:\Users\303\Documents\GitHub\VeksisMarketimApp\VeksisMarketimApp\obj\Debug\VeksisMarketimApp.Properties.Resources.resources
+C:\Users\303\Documents\GitHub\VeksisMarketimApp\VeksisMarketimApp\obj\Debug\VeksisMarketimApp.csproj.GenerateResource.cache
+C:\Users\303\Documents\GitHub\VeksisMarketimApp\VeksisMarketimApp\obj\Debug\VeksisMarketimApp.csproj.CoreCompileInputs.cache
+C:\Users\303\Documents\GitHub\VeksisMarketimApp\VeksisMarketimApp\obj\Debug\VeksisMarketimApp.csproj.CopyComplete
+C:\Users\303\Documents\GitHub\VeksisMarketimApp\VeksisMarketimApp\obj\Debug\VeksisMarketimApp.exe
+C:\Users\303\Documents\GitHub\VeksisMarketimApp\VeksisMarketimApp\obj\Debug\VeksisMarketimApp.pdb
