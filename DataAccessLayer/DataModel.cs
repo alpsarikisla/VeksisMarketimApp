@@ -131,6 +131,95 @@ namespace DataAccessLayer
             }
         }
 
+        public Tedarikci TedarikciGetir(int id)
+        {
+            try
+            {
+                Tedarikci t = new Tedarikci();
+                cmd.CommandText = "SELECT T.ID, T.FirmaAdi, T.Yetkili, T.FirmaTelefon, T.Email, T.Sehir_ID, S.Isim, T.Ilce_ID, I.Isim, T.Adres, T.Durum FROM Tedarikciler AS T JOIN Sehirler AS S ON T.Sehir_ID = S.ID JOIN Ilceler AS I ON T.Ilce_ID = I.ID WHERE T.ID = @id";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", id);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    t= new Tedarikci()
+                    {
+                        ID = reader.GetInt32(0),
+                        FirmaAdi = reader.GetString(1),
+                        Yetkili = reader.GetString(2),
+                        FirmaTelefon = reader.GetString(3),
+                        Email = reader.GetString(4),
+                        Sehir_ID = reader.GetInt32(5),
+                        Sehir = reader.GetString(6),
+                        Ilce_ID = reader.GetInt32(7),
+                        Ilce = reader.GetString(8),
+                        Adres = reader.GetString(9),
+                        Durum = reader.GetBoolean(10)
+                    };
+                }
+                return t;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public bool TedarikciGuncelle(Tedarikci model)
+        {
+            try
+            {
+                cmd.CommandText = "UPDATE Tedarikciler SET FirmaAdi=@firmaadi, Yetkili =@yetkili, FirmaTelefon = @firmatelefon, Email=@email, Sehir_ID=@sehir_ID, Ilce_ID=@ilce_ID, Adres=@adres, Durum=@durum WHERE ID=@id";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", model.ID);
+                cmd.Parameters.AddWithValue("@firmaadi", model.FirmaAdi);
+                cmd.Parameters.AddWithValue("@yetkili", model.Yetkili);
+                cmd.Parameters.AddWithValue("@firmatelefon", model.FirmaTelefon);
+                cmd.Parameters.AddWithValue("@email", model.Email);
+                cmd.Parameters.AddWithValue("@sehir_ID", model.Sehir_ID);
+                cmd.Parameters.AddWithValue("@ilce_ID", model.Ilce_ID);
+                cmd.Parameters.AddWithValue("@adres", model.Adres);
+                cmd.Parameters.AddWithValue("@durum", model.Durum);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public bool TedarikciSil(int id)
+        {
+            try
+            {
+                cmd.CommandText = "UPDATE Tedarikciler SET Silinmis=1 WHERE ID= @id";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", id);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
         #endregion
 
         #region Şehir İlçe Metotları
