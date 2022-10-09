@@ -43,11 +43,15 @@
   <ItemGroup>
     <Compile Include="ConnectionStrings.cs" />
     <Compile Include="DataModel.cs" />
+    <Compile Include="Model\Birim.cs" />
     <Compile Include="Model\Ilce.cs" />
+    <Compile Include="Model\Kategori.cs" />
     <Compile Include="Model\Kullanici.cs" />
     <Compile Include="Model\KullaniciLoginModel.cs" />
+    <Compile Include="Model\Marka.cs" />
     <Compile Include="Model\Sehir.cs" />
     <Compile Include="Model\Tedarikci.cs" />
+    <Compile Include="Model\Urun.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

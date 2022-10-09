@@ -1,6 +1,7 @@
 ﻿using DataAccessLayer.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -278,6 +279,160 @@ namespace DataAccessLayer
             }
         }
 
+
+        #endregion
+
+        #region Kategori Metotları
+
+        public List<Kategori> UrunEkleKategoriGetir()
+        {
+            List<Kategori> kategoriler = new List<Kategori>();
+            try
+            {
+                cmd.CommandText = "SELECT ID, Kategori FROM KategorilerListesi WHERE Silinmis=0";
+                cmd.Parameters.Clear();
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    kategoriler.Add(new Kategori()
+                    {
+                        ID = reader.GetInt32(0),
+                        Isim = reader.GetString(1)
+                    });
+                }
+                return kategoriler;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        #endregion
+
+        #region Marka Metotları
+
+        public List<Marka> UrunEkleMarkaGetir()
+        {
+            List<Marka> markalar = new List<Marka>();
+            try
+            {
+                cmd.CommandText = "SELECT ID, Isim FROM Markalar WHERE Silinmis=0";
+                cmd.Parameters.Clear();
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    markalar.Add(new Marka()
+                    {
+                        ID = reader.GetInt32(0),
+                        Isim = reader.GetString(1)
+                    });
+                }
+                return markalar;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        #endregion
+
+        #region Birim Metotları
+
+        public List<Birim> UrunEkleBirimGetir()
+        {
+            List<Birim> markalar = new List<Birim>();
+            try
+            {
+                cmd.CommandText = "SELECT ID, Isim FROM Birimler WHERE Silinmis=0";
+                cmd.Parameters.Clear();
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    markalar.Add(new Birim()
+                    {
+                        ID = reader.GetInt32(0),
+                        Isim = reader.GetString(1)
+                    });
+                }
+                return markalar;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        #endregion
+
+        #region Ürün Metotları
+
+        public bool UrunEkle(Urun model)
+        {
+            try
+            {
+                cmd.CommandText = "INSERT INTO Urunler(BarkodNo, Kategori_ID, Marka_ID, Birim_ID, KDVOrani, Isim, Stok, Aciklama, BirimFiyat, Durum, Silinmis) VALUES(@BarkodNo, @Kategori_ID, @Marka_ID, @Birim_ID, @KDVOrani, @Isim, @Stok, @Aciklama, @BirimFiyat, @Durum, @Silinmis)";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@BarkodNo", model.BarkodNo);
+                cmd.Parameters.AddWithValue("@Kategori_ID", model.Kategori_ID);
+                cmd.Parameters.AddWithValue("@Marka_ID", model.Marka_ID);
+                cmd.Parameters.AddWithValue("@Birim_ID", model.Birim_ID);
+                cmd.Parameters.AddWithValue("@KDVOrani", model.KDVOrani);
+                cmd.Parameters.AddWithValue("@Isim", model.Isim);
+                cmd.Parameters.AddWithValue("@Stok", model.Stok);
+                cmd.Parameters.AddWithValue("@Aciklama", model.Aciklama);
+                cmd.Parameters.AddWithValue("@BirimFiyat", model.BirimFiyat);
+                cmd.Parameters.AddWithValue("@Durum", model.Durum);
+                cmd.Parameters.AddWithValue("@Silinmis", model.Silinmis);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public DataTable UrunListele()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                cmd.CommandText = "SELECT * FROM UrunListele";
+                SqlDataAdapter adptr = new SqlDataAdapter(cmd);
+                adptr.Fill(dt);
+                return dt;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
 
         #endregion
     }

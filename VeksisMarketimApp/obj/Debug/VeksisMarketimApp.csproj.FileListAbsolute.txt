@@ -14,3 +14,4 @@ C:\Users\303\Documents\GitHub\VeksisMarketimApp\VeksisMarketimApp\obj\Debug\Veks
 C:\Users\303\Documents\GitHub\VeksisMarketimApp\VeksisMarketimApp\obj\Debug\VeksisMarketimApp.exe
 C:\Users\303\Documents\GitHub\VeksisMarketimApp\VeksisMarketimApp\obj\Debug\VeksisMarketimApp.pdb
 C:\Users\303\Documents\GitHub\VeksisMarketimApp\VeksisMarketimApp\obj\Debug\VeksisMarketimApp.TedarikciIslemleri.resources
+C:\Users\303\Documents\GitHub\VeksisMarketimApp\VeksisMarketimApp\obj\Debug\VeksisMarketimApp.UrunIslemleri.resources
