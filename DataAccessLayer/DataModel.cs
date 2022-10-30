@@ -434,6 +434,86 @@ namespace DataAccessLayer
             }
         }
 
+        public Urun UrunGetir(string barkod)
+        {
+            Urun u = new Urun();
+            try
+            {
+                cmd.CommandText = "SELECT ID,BarkodNo,KDVOrani,Isim,BirimFiyat,Durum FROM Urunler WHERE BarkodNo=@b";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@b", barkod);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    u.ID = reader.GetInt32(0);
+                    u.BarkodNo = reader.GetString(1);
+                    u.KDVOrani = reader.GetInt32(2);
+                    u.Isim = reader.GetString(3);
+                    u.BirimFiyat = reader.GetDecimal(4);
+                    u.Durum = reader.GetBoolean(5);
+                }
+                return u;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        #endregion
+
+        #region Satış Metotları
+
+        public int satisEkle(Satis s)
+        {
+            try
+            {
+                cmd.CommandText = "INSERT INTO Satislar(Kullanici_ID,AraToplam,Toplam,KDV,SatisTarihi) VALUES(@Kullanici_ID,@AraToplam,@Toplam,@KDV,@SatisTarihi) SELECT @@IDENTITY";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Kullanici_ID", s.Kullanici_ID);
+                cmd.Parameters.AddWithValue("@AraToplam", s.AraToplam);
+                cmd.Parameters.AddWithValue("@Toplam", s.Toplam);
+                cmd.Parameters.AddWithValue("@KDV", s.KDV);
+                cmd.Parameters.AddWithValue("@SatisTarihi", s.SatisTarihi);
+                con.Open();
+                int id = Convert.ToInt32(cmd.ExecuteScalar());
+                return id;
+            }
+            catch
+            {
+                return -1;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public void SatisDetayEkle(List<SatisDetay> list)
+        {
+            cmd.CommandText = "INSERT INTO SatisDetaylar(ID,Satis_ID,Urun_ID,Adet,BirimFiyat,AraToplam,Toplam,KDV) VALUES(@ID,@Satis_ID,@Urun_ID,@Adet,@BirimFiyat,@AraToplam,@Toplam,@KDV)";
+            con.Open();
+            foreach (SatisDetay item in list)
+            {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@ID", item.ID);
+                cmd.Parameters.AddWithValue("@Satis_ID", item.Satis_ID);
+                cmd.Parameters.AddWithValue("@Urun_ID", item.Urun_ID);
+                cmd.Parameters.AddWithValue("@Adet", item.Adet);
+                cmd.Parameters.AddWithValue("@BirimFiyat", item.BirimFiyat);
+                cmd.Parameters.AddWithValue("@AraToplam", item.AraToplam);
+                cmd.Parameters.AddWithValue("@Toplam", item.Toplam);
+                cmd.Parameters.AddWithValue("@KDV", item.KDV);
+                cmd.ExecuteNonQuery();
+            }
+            con.Close();
+        }
+
         #endregion
     }
 }

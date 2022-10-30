@@ -49,6 +49,8 @@
     <Compile Include="Model\Kullanici.cs" />
     <Compile Include="Model\KullaniciLoginModel.cs" />
     <Compile Include="Model\Marka.cs" />
+    <Compile Include="Model\Satis.cs" />
+    <Compile Include="Model\SatisDetay.cs" />
     <Compile Include="Model\Sehir.cs" />
     <Compile Include="Model\Tedarikci.cs" />
     <Compile Include="Model\Urun.cs" />

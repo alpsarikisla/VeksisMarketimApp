@@ -65,5 +65,26 @@ namespace VeksisMarketimApp
                 frm.Show();
             }
         }
+
+        private void TSMI_Satis_Click(object sender, EventArgs e)
+        {
+            Form[] acikformlar = this.MdiChildren;
+            bool acikmi = false;
+
+            foreach (Form item in acikformlar)
+            {
+                if (item.GetType() == typeof(SatisForm))
+                {
+                    acikmi = true;
+                    item.Activate();
+                }
+            }
+            if (acikmi == false)
+            {
+                SatisForm frm = new SatisForm();
+                frm.MdiParent = this;
+                frm.Show();
+            }
+        }
     }
 }
